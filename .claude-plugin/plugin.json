@@ -1,0 +1,7 @@
+{
+  "name": "claude-msc",
+  "description": "Personal Claude Code plugin with GitHub CLI skill",
+  "author": {
+    "name": "춘식이"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "skill_name": "gh-cli",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "현재 저장소의 열린 PR 목록을 보여줘",
+      "expected_output": "gh pr list 명령어를 실행하여 열린 PR 목록을 출력한다",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "feature/login 브랜치에서 main으로 'Add login feature'라는 제목의 PR을 만들어줘",
+      "expected_output": "gh pr create 명령어로 제목과 base 브랜치를 지정하여 PR을 생성한다",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "이슈 #15를 닫아줘, 해결됐다고 코멘트도 남겨줘",
+      "expected_output": "gh issue close 15 --comment 명령어로 코멘트와 함께 이슈를 닫는다",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "v2.0.0 릴리즈를 만들어줘, 릴리즈 노트는 자동으로 생성해줘",
+      "expected_output": "gh release create v2.0.0 --generate-notes 명령어로 릴리즈를 생성한다",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "최근 워크플로우 실행 현황을 확인하고 실패한 게 있으면 로그 보여줘",
+      "expected_output": "gh run list로 목록 확인 후 실패한 run에 대해 gh run view --log-failed를 실행한다",
+      "files": []
+    }
+  ]
+}
