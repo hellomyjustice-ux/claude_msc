@@ -9,17 +9,25 @@ function Header() {
     <AppBar
       position='sticky'
       elevation={0}
-      sx={{ bgcolor: 'primary.main', borderBottom: '1px solid rgba(255,255,255,0.1)' }}
+      sx={{
+        bgcolor: 'primary.dark',
+        borderBottom: '1px solid rgba(212,150,26,0.25)',
+      }}
     >
       <Toolbar sx={{ px: { xs: 2, md: 4 } }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <DashboardIcon sx={{ color: 'white' }} />
-          <Typography variant='h6' fontWeight={700} color='white' letterSpacing={1}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+          <DashboardIcon sx={{ color: 'secondary.main', fontSize: 26 }} />
+          <Typography
+            variant='h6'
+            fontWeight={700}
+            letterSpacing={2}
+            sx={{ color: 'var(--color-text-primary)' }}
+          >
             VIBE DASH
           </Typography>
         </Box>
         <Box sx={{ flexGrow: 1 }} />
-        <Typography variant='caption' sx={{ color: 'rgba(255,255,255,0.6)' }}>
+        <Typography variant='caption' sx={{ color: 'var(--color-text-muted)' }}>
           이미지 갤러리
         </Typography>
       </Toolbar>

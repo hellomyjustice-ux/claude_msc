@@ -55,17 +55,23 @@ function GalleryGrid({ refreshKey }) {
   if (loading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-        <CircularProgress color='secondary' />
+        <CircularProgress sx={{ color: 'secondary.main' }} />
       </Box>
     );
   }
 
   if (images.length === 0) {
     return (
-      <Box sx={{ textAlign: 'center', py: 8, color: 'text.secondary' }}>
-        <ImageIcon sx={{ fontSize: 64, opacity: 0.3, mb: 1, display: 'block', mx: 'auto' }} />
-        <Typography variant='body1'>업로드된 이미지가 없습니다</Typography>
-        <Typography variant='caption'>위 업로드 영역에서 이미지를 추가해보세요</Typography>
+      <Box sx={{ textAlign: 'center', py: 8 }}>
+        <ImageIcon
+          sx={{ fontSize: 64, opacity: 0.4, mb: 1, display: 'block', mx: 'auto', color: 'var(--color-text-primary)' }}
+        />
+        <Typography variant='body1' sx={{ color: 'var(--color-text-primary)' }}>
+          업로드된 이미지가 없습니다
+        </Typography>
+        <Typography variant='caption' sx={{ color: 'var(--color-text-muted)' }}>
+          위 업로드 영역에서 이미지를 추가해보세요
+        </Typography>
       </Box>
     );
   }

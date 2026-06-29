@@ -71,16 +71,16 @@ function UploadButton({ onUploadComplete }) {
         onClick={() => !uploading && inputRef.current?.click()}
         sx={{
           border: '2px dashed',
-          borderColor: isDragging ? 'secondary.main' : 'rgba(61,126,216,0.35)',
+          borderColor: isDragging ? 'secondary.main' : 'rgba(212,150,26,0.5)',
           borderRadius: '14px',
           p: { xs: 3, md: 4 },
           textAlign: 'center',
           cursor: uploading ? 'not-allowed' : 'pointer',
-          bgcolor: isDragging ? 'rgba(61,126,216,0.06)' : 'white',
+          bgcolor: isDragging ? 'rgba(212,150,26,0.08)' : 'rgba(74,122,150,0.3)',
           transition: 'all 0.2s ease',
           '&:hover': {
             borderColor: 'secondary.main',
-            bgcolor: 'rgba(61,126,216,0.04)',
+            bgcolor: 'rgba(212,150,26,0.06)',
           },
         }}
       >
@@ -93,16 +93,24 @@ function UploadButton({ onUploadComplete }) {
           onChange={(e) => uploadFiles(e.target.files)}
         />
         <CloudUploadIcon sx={{ fontSize: 44, color: 'secondary.main', mb: 1 }} />
-        <Typography variant='body1' fontWeight={600} color='text.primary'>
+        <Typography
+          variant='body1'
+          fontWeight={600}
+          sx={{ color: 'var(--color-text-primary)' }}
+        >
           {uploading ? '업로드 중...' : '이미지를 드래그하거나 클릭해서 업로드'}
         </Typography>
-        <Typography variant='caption' color='text.secondary' sx={{ display: 'block', mt: 0.5 }}>
+        <Typography
+          variant='caption'
+          sx={{ display: 'block', mt: 0.5, color: 'var(--color-text-muted)' }}
+        >
           JPG · PNG · GIF · WEBP — 파일당 최대 50MB
         </Typography>
         {uploading && (
           <LinearProgress
             variant='determinate'
             value={progress}
+            color='secondary'
             sx={{ mt: 2, borderRadius: 4, height: 6 }}
           />
         )}

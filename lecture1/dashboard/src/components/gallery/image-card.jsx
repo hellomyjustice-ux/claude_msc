@@ -61,9 +61,13 @@ function ImageCard({ image, onDelete }) {
       sx={{
         borderRadius: '14px',
         overflow: 'hidden',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04)',
-        transition: 'box-shadow 0.2s ease',
-        '&:hover': { boxShadow: '0 4px 16px rgba(0,0,0,0.12)' },
+        bgcolor: 'var(--color-card-bg)',
+        boxShadow: '0 2px 8px rgba(74,122,150,0.15), 0 4px 16px rgba(74,122,150,0.08)',
+        transition: 'box-shadow 0.2s ease, transform 0.2s ease',
+        '&:hover': {
+          boxShadow: '0 6px 20px rgba(74,122,150,0.25)',
+          transform: 'translateY(-2px)',
+        },
       }}
     >
       <CardMedia
@@ -71,17 +75,23 @@ function ImageCard({ image, onDelete }) {
         height='180'
         image={image.url}
         alt={image.name}
-        sx={{ objectFit: 'cover', bgcolor: '#f0f4f8' }}
+        sx={{ objectFit: 'cover', bgcolor: '#E8D8C0' }}
       />
       <CardContent sx={{ pb: 0, pt: 1.5, px: 2 }}>
-        <Typography variant='body2' fontWeight={600} noWrap title={image.name}>
+        <Typography
+          variant='body2'
+          fontWeight={600}
+          noWrap
+          title={image.name}
+          sx={{ color: 'primary.dark' }}
+        >
           {image.name}
         </Typography>
         <Box sx={{ display: 'flex', gap: 1.5, mt: 0.5 }}>
-          <Typography variant='caption' color='text.secondary'>
+          <Typography variant='caption' sx={{ color: 'text.secondary' }}>
             {formatSize(image.metadata?.size)}
           </Typography>
-          <Typography variant='caption' color='text.secondary'>
+          <Typography variant='caption' sx={{ color: 'text.secondary' }}>
             {formatDate(image.created_at)}
           </Typography>
         </Box>
@@ -91,9 +101,9 @@ function ImageCard({ image, onDelete }) {
           <span>
             <IconButton
               size='small'
-              color='secondary'
               onClick={handleDownload}
               disabled={downloading}
+              sx={{ color: 'primary.main', '&:hover': { color: 'secondary.main' } }}
             >
               {downloading ? <CircularProgress size={16} /> : <DownloadIcon fontSize='small' />}
             </IconButton>

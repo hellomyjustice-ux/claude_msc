@@ -1,3 +1,19 @@
+:root {
+  --color-primary: #5589A5;
+  --color-primary-light: #7AADC4;
+  --color-primary-dark: #4A7A96;
+  --color-secondary: #F0E3C8;
+  --color-accent: #D4961A;
+  --color-accent-hover: #B87E14;
+  --color-bg-primary: #5589A5;
+  --color-bg-secondary: #4A7A96;
+  --color-card-bg: #F5EEE0;
+  --color-text-primary: #F0E3C8;
+  --color-text-secondary: #F5F5F5;
+  --color-text-muted: #C8D8E0;
+  --color-disabled: #8AABB8;
+}
+
 * {
   box-sizing: border-box;
 }
