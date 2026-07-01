@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  /* Archive Community 컬러 시스템 — 컬러 팔레트 디자인 시스템.md 기준 */
+  --color-background: #E8D8B0;
+  --color-surface: #D4C49A;
+  --color-primary: #2B3A4E;
+  --color-primary-light: #3D5060;
+  --color-primary-dark: #1E2B38;
+  --color-secondary: #456070;
+  --color-accent: #B07A2A;
+  --color-accent-hover: #8E6220;
+  --color-accent-active: #7A5318;
+  --color-muted: #7A8E9C;
+  --color-paper: #F0ECE0;
+  --color-border: #D4C49A;
+  --color-error: #9C4038;
+  --color-success: #3D8A50;
+  --color-disabled: #A8B8C0;
+
+  /* Font */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+}
+
+/* CSS 초기화 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root,
+body > div:first-child {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background-color: #E8D8B0;
+  color: #2B3A4E;
+  font-family: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 편집 디자인 타이포그래피 */
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* 얇은 구분선 스타일 */
+.editorial-divider {
+  border: none;
+  border-top: 1px solid #D4C49A;
+}
+
+/* 카드 hover 이미지 확대 */
+.card-image-zoom {
+  transition: transform 0.4s ease;
+}
+
+.card-image-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* 링크 밑줄 효과 */
+.editorial-link {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+}
+
+.editorial-link:hover {
+  background-size: 100% 1px;
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* focus-visible 스타일 */
+:focus-visible {
+  outline: 2px solid #B07A2A;
+  outline-offset: 2px;
+}
+
+/* 스크롤바 커스텀 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8D8B0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4C49A;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B07A2A;
+}
