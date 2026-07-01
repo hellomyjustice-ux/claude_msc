@@ -2,32 +2,36 @@
 
 import { useState, useTransition } from 'react';
 import { Trash2 } from 'lucide-react';
-import { deletePost } from '@/actions/posts';
+import { clientDeletePost } from '@/lib/supabase/client-actions';
 import Button from '@/components/ui/Button';
 import ConfirmModal from '@/components/ui/ConfirmModal';
 
-export default function DeletePostButton({ postId }: { postId: string }) {
+interface DeletePostButtonProps {
+  postId: string;
+  onDeleted?: () => void;
+}
+
+export default function DeletePostButton({ postId, onDeleted }: DeletePostButtonProps) {
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const handleConfirm = () => {
     startTransition(async () => {
-      await deletePost(postId);
+      const result = await clientDeletePost(postId);
+      if (!result.error) {
+        setOpen(false);
+        onDeleted?.();
+      }
     });
   };
 
   return (
     <>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => setOpen(true)}
-        className="text-[#9C4038] hover:text-[#9C4038] hover:border-[#9C4038]"
-      >
+      <Button variant="ghost" size="sm" onClick={() => setOpen(true)}
+        className="text-[#9C4038] hover:text-[#9C4038] hover:border-[#9C4038]">
         <Trash2 size={14} />
         삭제
       </Button>
-
       <ConfirmModal
         isOpen={open}
         title="게시글 삭제"
